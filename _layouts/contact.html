@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+{% include head.html %}
+
+<body id="page-top">
+  {% include nav.html %}
+	<header>
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-sm-6">
+	                <div class="header-content">
+	                    <div class="header-content-inner">
+	                        <h1 class="text-left">联系我们</h1>
+	                        <div class="text-center">
+	                        	<img src="/img/weixin.jpg" class="img-responsive" alt="微信">
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+
+	            <div class="col-sm-6">
+	                <div class="header-content">
+	                    <div class="header-content-inner">
+	                    	<p>如果你在寻找开发设计人才为你服务，欢迎与我们联系。不管是技术问题，需求问题乃至预算问题，我们都可以进行交谈。</p>
+	                        <p>
+			                    邮箱: admin@langoft.com<br/>
+			                    邮箱: 724261350@qq.com<br/>
+			                    <br/>
+			                    电话: 132-174-81656<br/>
+			                    电话: 187-892-48450<br/>
+			                    <br/>
+			                    Q Q:724261350<br>
+			                    Q Q:623695354<br>
+			                    <br/>
+			                    湖南省·长沙市·开福区·湘江中路一段59号 <br/>
+			                </p>
+	                    </div>
+	                </div>
+	            </div>
+	           
+	        </div>
+	    </div>
+	</header>
+	<section style="padding:0px;">
+		<div class="map-wrapper mtb">
+		    <div class="container1">
+		        <div style="width:100%;height:550px;border:#f5f5f5 solid 1px;font-size:12px" id="map"></div>
+		    </div>
+		</div>
+
+		<!--引用百度地图API-->
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZzKvddRGGP5XI4giSzbjArsOHQPsagAq"></script>
+		<!--百度地图容器-->
+		<script type="text/javascript">
+		    //创建和初始化地图函数：
+		    function initMap(){
+		      createMap();//创建地图
+		      setMapEvent();//设置地图事件
+		      addMapControl();//向地图添加控件
+		      addMapOverlay();//向地图添加覆盖物
+		    }
+		    function createMap(){ 
+		      map = new BMap.Map("map"); 
+		      map.centerAndZoom(new BMap.Point(112.984796,28.224875),18);
+		    }
+		    function setMapEvent(){
+		      map.enableScrollWheelZoom();
+		      map.enableKeyboard();
+		      map.enableDragging();
+		      map.enableDoubleClickZoom()
+		    }
+		    function addClickHandler(target,window){
+		      target.addEventListener("click",function(){
+		        target.openInfoWindow(window);
+		      });
+		    }
+		    function addMapOverlay(){
+		      var markers = [
+		        {content:"<b>联系地址</b>：湖南省长沙市开福区湘江中路一段百善台小区1栋四单元7楼          <br><b> 联系电话</b>：13217481656 <br> <b>联系邮箱</b>：admin@langoft.com",title:"海南良葱网络科技有限公司（现）",imageOffset: {width:0,height:3},position:{lat:28.223299,lng:112.985218}}
+		      ];
+		      for(var index = 0; index < markers.length; index++ ){
+		        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+		        var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+		          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+		        })});
+		        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+		        var opts = {
+		          width: 200,
+		          title: markers[index].title,
+		          enableMessage: false
+		        };
+		        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+		        marker.setLabel(label);
+		        addClickHandler(marker,infoWindow);
+		        map.addOverlay(marker);
+		      };
+		    }
+		    //向地图添加控件
+		    function addMapControl(){
+		      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+		      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+		      map.addControl(scaleControl);
+		      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+		      map.addControl(navControl);
+		      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+		      map.addControl(overviewControl);
+		    }
+		    var map;
+		      initMap();
+		</script>
+	</section>
+  {% include contact.html %}
+  {% include scripts.html %}
+</body>
+
+</html>

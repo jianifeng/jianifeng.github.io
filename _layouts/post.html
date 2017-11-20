@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<!-- Post Header -->
+<canvas id="canvas-image"></canvas>
+<header id="header-blog" class="intro-header bg-primary text-center" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-12">
+              <div class="post-heading">
+                <h1>{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <h2 class="subheading">{{ page.subtitle }}</h2>
+                {% endif %}
+                <p>{% if page.author %}<small>发表:</small>{{ page.author }} {% else %}寻找最近技术\资讯\观点\价值{% endif %} </p>
+                <p>{% if page.date %}<small>时间:</small>{{ page.date | date: "%Y-%m-%d" }}{% else %}<br/><br/>{% endif %}</p>
+               
+              </div>
+               <p><a href="#post" class="page-scroll  white"><i class="fa fa-fw fa-2x fa-arrow-down"></i></a></p>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Post Content -->
+<article>
+    <div id="post" class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2  col-md-12">
+				 {{ content }}
+
+
+	
+                <ul class="pager">
+                    {% if page.previous.url %}
+                    <li class="previous">
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}"><<< 前一篇</a>
+                    </li>
+                    {% endif %}
+                    {% if page.next.url %}
+                    <li class="next">
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">下一篇 >>></a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</article>
+

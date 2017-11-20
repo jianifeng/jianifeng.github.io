@@ -1,0 +1,39 @@
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="footer-box">
+                    <h4>关于我们</h4>
+                    <div class="hline-w"></div>
+                    <p>{{ site.about }}</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="footer-box">
+                    <h4>联系我们</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        {% for line in site.address.first.lines %}
+                            {{ line }} <br>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="footer-box">
+                    <h4>社交网络</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        {% for network in site.social %}
+                            <a href="{{ network.url }}" class="btn-social btn-outline"><i class="fa fa-{{ network.title }}"></i></a>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div><! --/row -->
+    </div>
+
+
+</footer>
