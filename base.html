@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		{% include "includes/head.html" %}
+		{% block title %}<title>葱</title>{% endblock %}
+		
+		{% block style %}
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+		{% endblock %}
+		
+    	<style type="text/css">
+	      canvas {
+			  position: absolute;
+			  top:0;
+			  left:0;
+			  z-index: 2;
+			  opacity: 0.1;
+			}
+			#guiContainer {
+			  position:absolute;
+			  width: 0;
+			  height: 0;
+			}
+			#awd-site-canvas{
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body class="start" style="" cz-shortcut-listen="true">
+		<div id="awd-site-wrap" class="bg bg-home">
+			<div id="bg">
+			    <div id="overlay">
+			        <div class="awd-site-bg bg-home active" style="left: 1450.13px; top: 15px;"></div>
+			        <div class="awd-site-bg bg-blog" style="left: 1694.48px; top: 15px;"></div>
+			        <div class="awd-site-bg bg-subscribe" style="left: 1531.58px; top: 15px;"></div>
+			        <div class="awd-site-bg bg-about" style="left: 1613.03px; top: 15px;"></div>
+			        <div class="awd-site-bg bg-contact" style="left: 1793.94px; top: 15px;"></div>
+			        <div class="awd-site-bg bg-services" style="left: 1694.48px; top: 15px;"></div>
+			    </div>
+			    <canvas id="awd-site-canvas" width="552" height="901"></canvas>
+			    <canvas id="c"></canvas>
+				<div id="guiContainer"></div>
+			</div>
+
+			
+			{% include "includes/header.html" %}
+			<main id="awd-site-main">
+				<section id="awd-site-content">
+					<div class="sections-block ps-container" data-ps-id="de12e3ea-4e8d-b0ec-319a-73a91372b40b">
+						<div class="slides">
+							<div class="slides-wrap">
+								<!-- HOME SECTION -->
+								<div class="slide-item active" data-slide-id="home">
+								    <!-- START CONTAINER -->
+								    <div class="container-fluid">
+								        <div class="row">
+								            <div class="col-md-12">
+								                <!-- START SLIDE CONTENT-->
+								                <div class="slide-content">
+								                    <div class="row">
+								                        <div class="col-lg-6 col-md-6 svm">
+								                            <div class="section-info text-left">
+								                            	<h1><a href="{{ url_for('index') }}">内容测试</a></h1>
+																{% block content %}
+																{% endblock %}
+								                                <div class="countdown">
+								                                    <div id="clock" class="animated fadeIn visible" data-animation="fadeIn" data-animation-delay="60"></div>
+								                                </div>
+								                            </div>
+								                        </div>
+								                        <div class="col-lg-5 col-lg-offset-1 col-md-6 svm">
+								                            <div class="section-info text-right">
+								                                <!-- START TITLE -->
+								                                <h2 class="section-title text-default animated fadeIn visible" data-animation="fadeIn" data-animation-delay="50">Hey
+								                                    Guys!<br> 我们即将上线啦...</h2>
+								                                <!-- END TITLE -->
+								                                <p class="animated fadeIn visible" data-animation="fadeIn" data-animation-delay="55">我们的网站正在建设.<br> 它将是非常棒的网站.</p>
+								                                <a href="http://www.jq22.com/demo/comingsoon201704081248/#" class="btn go-slide animated fadeIn visible" data-animation="fadeIn" data-animation-delay="60" data-slide="about">更多资料</a>
+								                                <a href="http://www.jq22.com/demo/comingsoon201704081248/#" class="btn btn-inverse go-slide animated fadeIn visible" data-animation="fadeIn" data-animation-delay="60" data-slide="subscribe">联系我们!</a>
+								                            </div>
+								                        </div>
+								                    </div>
+								                </div>
+								                <!-- END SLIDE CONTENT-->
+								            </div>
+								        </div>
+								    </div>
+								    <!-- END CONTAINER -->
+								</div>
+
+								<!-- blog SECTION -->
+								<div class="slide-item" data-slide-id="blog">
+								    <!-- START CONTAINER -->
+								    <div class="container-fluid">
+								        <div class="row">
+								            <div class="col-md-12">
+								                <!-- START SLIDE CONTENT-->
+								                <div class="slide-content">
+								                    <div class="row">
+								                        <div class="col-lg-5 col-lg-offset-1 col-md-6 col-md-push-6 svm">
+
+								                            <div class="section-info text-right">
+								                                <!-- START TITLE -->
+								                                <h2 class="section-title text-default animated" data-animation="fadeIn">联系我们</h2>
+								                                <!-- END TITLE -->
+								                                <div class="contact-info">
+								                                    <p class="contact-item"><i class="fa fa-phone"></i> 固话: 0571-6237 8527</p>
+								                                    <p class="contact-item"><i class="fa fa-envelope"></i> 邮箱: 62378527@qq.com</p>
+								                                    <p class="contact-item"><i class="fa fa-map-marker"></i> 浙江 杭州 紫金创业园 C座 6栋606</p>
+								                                </div>
+								                                <p class="animated" data-animation="fadeIn" data-animation-delay="100">
+																	</p><h3>通信能力创新 让通讯更简单</h3>
+																	<h5>优质便捷的云通信服务平台</h5>
+								                                <p></p>
+								                            </div>
+								                        </div>
+								                        <div class="col-lg-6 col-md-6 col-md-pull-6 svm">
+								                            <div class="section-info text-left">
+								                            <!-- START CONTACT FORM -->
+								                            <form id="contact-form" class="contact-form">
+								                                <div class="row">
+								                                    <div class="col-lg-4 col-md-6 col-md-12 animated" data-animation="fadeIn" data-animation-delay="200">
+								                                        <input type="text" name="contact-name" placeholder="真实姓名" class="contact-form-name required">
+								                                    </div>
+								                                    <div class="col-lg-4 col-md-6 col-md-12 animated" data-animation="fadeIn" data-animation-delay="200">
+								                                        <input type="email" name="contact-email" placeholder="电子邮箱" class="contact-form-email required">
+								                                    </div>
+								                                    <div class="col-lg-4 col-md-12 animated" data-animation="fadeIn" data-animation-delay="200">
+								                                        <input type="text" name="contact-subject" placeholder="从事行业" class="contact-form-subject required">
+								                                    </div>
+								                                    <!-- END COLUMN 4 -->
+								                                    <div class="col-md-12 animated" data-animation="fadeIn" data-animation-delay="150">
+								                                        <textarea name="contact-message" placeholder="说两句吧..." class="contact-form-message required" rows="4"></textarea>
+								                                        <button class="btn btn-block" type="submit" id="submit" name="submit"><span>放飞梦想</span>
+								                                            <i class="fa fa-send"></i></button>
+								                                    </div>
+								                                    <!-- END COLUMN 8 -->
+								                                </div>
+								                                <!-- END ROW -->
+								                                <div class="contact-notice"></div>
+								                            </form>
+								                            <!-- END CONTACT FORM -->
+								                            </div>
+								                        </div>
+								                    </div>
+
+								                </div>
+								                <!-- END SLIDE CONTENT-->
+								            </div>
+								        </div>
+								        <!-- END ROW -->
+								    </div>
+								    <!-- END CONTAINER -->
+								</div>
+
+								<!-- SUBSCRIBE SECTION -->
+								<div class="slide-item" data-slide-id="subscribe">
+								    <!-- START CONTAINER -->
+								    <div class="container-fluid">
+								        <div class="row">
+								            <div class="col-md-12">
+
+								                <!-- START SLIDE CONTENT-->
+								                <div class="slide-content">
+
+								                    <div class="row">
+								                        <div class="col-lg-5 col-lg-offset-2 col-md-6 col-md-offset-1 col-md-push-5 svm">
+								                            <div class="section-info text-right">
+								                                <!-- START TITLE -->
+								                                <h2 class="section-title text-default animated" data-animation="fadeIn" data-animation-delay="60">订阅  <br> 我们的通讯</h2>
+								                                <!-- END TITLE -->
+
+								                                <p class="animated" data-animation="fadeIn" data-animation-delay="100">加入我们的邮件通讯.
+								                                    <strong>它的快速和容易.</strong><br> 你将成为第一个知道<br> 我们项目启动的人.
+								                                </p>
+								                            </div>
+								                        </div>
+								                        <div class="col-md-5 col-md-pull-7 svm">
+								                            <div class="section-info text-left">
+								                                <p><strong>别忘了</strong>点击确认电子邮件,您将会收到以<strong>激活</strong>您的订阅。</p>
+								                                <!-- Subscribe Form -->
+								                                <div class="row">
+								                                    <div class="col-md-12 col-md-offset-0 col-sm-8 col-sm-offset-2">
+								                                        <form id="subscribe-form" class="subscribe-form" method="post" novalidate="true">
+								                                            <input type="email" id="subscribe-email" name="EMAIL" placeholder="请留下你的邮箱地址">
+								                                            <button type="submit" id="subscribe-submit" class="btn btn-inverse">
+								                                                <span>订阅</span> <i class="fa fa-envelope"></i></button>
+								                                            <div class="form-notice subscribe-notice"></div>
+								                                        </form>
+								                                    </div>
+								                                </div>
+								                                <!-- end Subscribe Form -->
+								                            </div>
+								                        </div>
+								                    </div>
+								                </div>
+								                <!-- END SLIDE CONTENT-->
+								            </div>
+								        </div>
+								        <!-- END ROW -->
+								    </div>
+								    <!-- END CONTAINER -->
+								</div>
+
+								<!-- ABOUT SECTION -->
+								<div class="slide-item" data-slide-id="about">
+								    <!-- START CONTAINER -->
+								    <div class="container-fluid">
+								        <div class="row">
+								            <div class="col-md-12">
+
+								                <!-- START SLIDE CONTENT-->
+								                <div class="slide-content">
+								                    <div class="row">
+								                        <div class="col-lg-5 col-lg-offset-2 col-md-6 col-md-offset-1 col-md-push-5 svm">
+								                            <div class="section-info text-right">
+								                                <!-- START TITLE -->
+								                                <h2 class="section-title text-default animated" data-animation="fadeIn" data-animation-delay="60">关于我们</h2>
+								                                <!-- END TITLE -->
+								                                <p class="animated" data-animation="fadeIn" data-animation-delay="100">公司致力于为客户提供专业的电信增值服务，帮助企业便捷接入验证码短信、短信通知、语音验证码、国际验证码、短信公众号、短信营销、彩信营销、数字奖励营销、手机话费充值、手机流量充值等电信增值服务，满足企业运营、营销推广多场景需要。</p>
+								                            </div>
+								                        </div>
+								                        <div class="col-md-5 col-md-pull-7 svm">
+								                            <div class="section-info text-left">
+								                                <!-- START FEATURES-LIST -->
+								                                <div class="features-list">
+
+								                                    <!-- FEATURE -->
+								                                    <div class="featured-item animated" data-animation="fadeIn" data-animation-delay="150">
+								                                        <div class="featured-text">
+								                                            <h3><i class="fa fa-rocket"></i> 安全高效</h3>
+
+								                                            <p>多年的技术积累与创新，树立在该领域的标杆地位。业务平台及软件全部自主研发，且都通过了国家知识产权认定。</p>
+								                                        </div>
+								                                    </div>
+
+								                                    <div class="featured-item">
+								                                        <!-- FEATURE -->
+								                                        <div class="featured-item animated" data-animation="fadeIn" data-animation-delay="150">
+								                                            <div class="featured-text">
+								                                                <h3><i class="icon-paint"></i> 高性能、高并发</h3>
+
+								                                                <p>在互联网及通讯行业有十几年的技术研发和运营维护经验，掌握高性能、高并发、大数据处理技术。</p>
+								                                            </div>
+								                                        </div>
+								                                    </div>
+
+								                                </div>
+								                                <!-- END FEATURES-LIST -->
+								                            </div>
+								                        </div>
+								                    </div>
+								                </div>
+								                <!-- END SLIDE CONTENT-->
+								            </div>
+								        </div>
+								        <!-- END ROW -->
+								    </div>
+								    <!-- END CONTAINER -->
+								</div>
+
+								<!-- SERVICES SECTION -->
+								<div class="slide-item" data-slide-id="services">
+								    <!-- START CONTAINER -->
+								    <div class="container-fluid">
+								        <div class="row">
+								            <div class="col-md-12">
+								                <!-- START SLIDE CONTENT-->
+								                <div class="slide-content">
+								                    <div class="row">
+								                        <div class="col-lg-5 col-lg-offset-2 col-md-6 col-md-offset-1 col-md-push-5 svm">
+								                            <div class="section-info text-right">
+								                                <!-- START TITLE -->
+								                                <h2 class="section-title text-default animated" data-animation="fadeIn">我们的服务</h2>
+								                                <!-- END TITLE -->
+								                                <p class="animated" data-animation="fadeIn" data-animation-delay="100">若您的账号未经过XXX实名认证，请根据提示完成认证。若您的账号已完成认证，请直接填写入驻信息。通过XXX个人认证的用户入驻完成后成为个人开发者，通过XXX企业认证的用户入驻完成后成为企业开发者。</p>
+								                            </div>
+								                        </div>
+								                        <div class="col-md-5 col-md-pull-7 svm">
+								                            <div class="section-info text-left">
+								                                <!-- SERVICE -->
+								                                <div class="service animated" data-animation="fadeIn" data-animation-delay="150">
+								                                    <h3>短信通知</h3>
+
+								                                    <p>3秒可达，三网合一专属通道，与工信部携号转网平台实时互联.99%到达率，短信结合语音验证，服务100%,专线机房，支持大容量、高并发、电信级运维保障，实时监控自动切换</p>
+								                                </div>
+
+								                                <!-- SERVICE -->
+								                                <div class="service animated" data-animation="fadeIn" data-animation-delay="150">
+								                                    <h3>语音通知</h3>
+
+								                                    <p>灵活，支持带入变量，动态语音内容灵活支持业务场景；安全，语音验证难窃取，安全有保障；可靠，支持大容量，高并发，稳定可靠</p>
+								                                </div>
+								                            </div>
+								                        </div>
+								                    </div>
+
+								                </div>
+								                <!-- END SLIDE CONTENT-->
+								            </div>
+								        </div>
+								        <!-- END ROW -->
+								    </div>
+								    <!-- END CONTAINER -->
+								</div>
+
+								<!-- CONTACT SECTION -->
+								<div class="slide-item" data-slide-id="contact">
+								    <!-- START CONTAINER -->
+								    <div class="container-fluid">
+								        <div class="row">
+								            <div class="col-md-12">
+								                <!-- START SLIDE CONTENT-->
+								                <div class="slide-content">
+								                    <div class="row">
+								                        <div class="col-lg-5 col-lg-offset-1 col-md-6 col-md-push-6 svm">
+
+								                            <div class="section-info text-right">
+								                                <!-- START TITLE -->
+								                                <h2 class="section-title text-default animated" data-animation="fadeIn">联系我们</h2>
+								                                <!-- END TITLE -->
+								                                <div class="contact-info">
+								                                    <p class="contact-item"><i class="fa fa-phone"></i> 固话: 0571-6237 8527</p>
+								                                    <p class="contact-item"><i class="fa fa-envelope"></i> 邮箱: 62378527@qq.com</p>
+								                                    <p class="contact-item"><i class="fa fa-map-marker"></i> 浙江 杭州 紫金创业园 C座 6栋606</p>
+								                                </div>
+								                                <p class="animated" data-animation="fadeIn" data-animation-delay="100">
+																	</p><h3>通信能力创新 让通讯更简单</h3>
+																	<h5>优质便捷的云通信服务平台</h5>
+								                                <p></p>
+								                            </div>
+								                        </div>
+								                        <div class="col-lg-6 col-md-6 col-md-pull-6 svm">
+								                            <div class="section-info text-left">
+								                            <!-- START CONTACT FORM -->
+								                            <form id="contact-form" class="contact-form">
+								                                <div class="row">
+								                                    <div class="col-lg-4 col-md-6 col-md-12 animated" data-animation="fadeIn" data-animation-delay="200">
+								                                        <input type="text" name="contact-name" placeholder="真实姓名" class="contact-form-name required">
+								                                    </div>
+								                                    <div class="col-lg-4 col-md-6 col-md-12 animated" data-animation="fadeIn" data-animation-delay="200">
+								                                        <input type="email" name="contact-email" placeholder="电子邮箱" class="contact-form-email required">
+								                                    </div>
+								                                    <div class="col-lg-4 col-md-12 animated" data-animation="fadeIn" data-animation-delay="200">
+								                                        <input type="text" name="contact-subject" placeholder="从事行业" class="contact-form-subject required">
+								                                    </div>
+								                                    <!-- END COLUMN 4 -->
+								                                    <div class="col-md-12 animated" data-animation="fadeIn" data-animation-delay="150">
+								                                        <textarea name="contact-message" placeholder="说两句吧..." class="contact-form-message required" rows="4"></textarea>
+								                                        <button class="btn btn-block" type="submit" id="submit" name="submit"><span>放飞梦想</span>
+								                                            <i class="fa fa-send"></i></button>
+								                                    </div>
+								                                    <!-- END COLUMN 8 -->
+								                                </div>
+								                                <!-- END ROW -->
+								                                <div class="contact-notice"></div>
+								                            </form>
+								                            <!-- END CONTACT FORM -->
+								                            </div>
+								                        </div>
+								                    </div>
+
+								                </div>
+								                <!-- END SLIDE CONTENT-->
+								            </div>
+								        </div>
+								        <!-- END ROW -->
+								    </div>
+								    <!-- END CONTAINER -->
+								</div>
+
+							</div>
+						</div>
+						<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+							<div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div>
+						</div>
+						<div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;">
+							<div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div>
+						</div>
+					</div>
+				</section>
+			</main>
+
+			{% include "includes/footer.html" %}
+			
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5.1/dat.gui.min.js'></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/vendor.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/options.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+	</body>
+</html>
